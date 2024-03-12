@@ -6,6 +6,7 @@ Terraform module to provision Oracle Cloud Infrastructure (OCI) Kubernetes (OKE)
 
 * [Requirements](#requirements)
 * [Mdodules](#modules)
+* [Usage](#usage)
 * [Inputs](#inputs)
 
 
@@ -26,6 +27,33 @@ Terraform module to provision Oracle Cloud Infrastructure (OCI) Kubernetes (OKE)
 | <a name="module_nodepool"></a> [nodepool](#module\_nodepool) | ./modules/nodepool | n/a |
 | <a name="module_virtual-nodepool"></a> [virtual-nodepool](#module\_virtual-nodepool) | ./modules/virtual-nodepool | n/a |
 
+
+
+## Usage
+ 
+    module "terraform-oci-oke" {
+        source = "github.com/avaloqcloud/terraform-oci-oke"
+    }
+
+### File `provider.tf` content example:
+
+```hcl
+terraform {
+  
+  required_version = ">= 1.2.0"
+
+  required_providers {
+    oci = {
+      source = "oracle/oci"
+      version = "~> 5.16"
+    }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "~> 2.23"
+    }
+  }
+}
+```
 
 ## Inputs
 
