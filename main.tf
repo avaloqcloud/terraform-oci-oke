@@ -1,0 +1,57 @@
+
+module "k8s-cluster" {
+  source                           = "./modules/k8s-cluster"
+  compartment_ocid                 = var.compartment_ocid          
+  cluster_kubernetes_version       = var.cluster_kubernetes_version  
+  cluster_name                     = var.cluster_name                 
+  vcn_id                           = var.vcn_id                        
+  cni_type                         = var.cni_type                         
+  is_public_ip_enabled             = var.is_public_ip_enabled           
+  control_plane_subnet_id          = var.control_plane_subnet_id       
+  loadbalancer_subnet_ocid         = var.loadbalancer_subnet_ocid         
+  pods_cidr                        = var.pods_cidr                         
+  services_cidr                    = var.services_cidr                   
+  cluster_type = lookup({
+    "basic"    = "BASIC_CLUSTER",
+    "enhanced" = "ENHANCED_CLUSTER"
+  }, lower(var.cluster_type), "BASIC_CLUSTER")
+}
+
+
+module "nodepool" {  
+  source                                  = "./modules/nodepool"  
+  for_each                                = var.node_type == "Managed" ? var.nodepool : {}
+  node_pool_name                          = each.value.node_pool_name 
+  cluster_id                              = module.k8s-cluster.cluster_id    
+  compartment_ocid                        = var.compartment_ocid                     
+  cluster_kubernetes_version              = var.cluster_kubernetes_version                            
+  cni_type                                = var.cni_type                                
+  image_id                                = each.value.image_id              
+  node_shape                              = each.value.node_shape                 
+  availabilitydomain                      = each.value.availabilitydomain         
+  worker_subnet_ocid                      = each.value.worker_subnet_ocid          
+  faultdomain                             = each.value.faultdomain                 
+  size                                    = each.value.size                        
+  max_pods_per_node                       = each.value.max_pods_per_node           
+  pod_subnet_ocid                         = each.value.pod_subnet_ocid            
+  memory                                  = each.value.memory                     
+  ocpus                                   = each.value.ocpus                      
+  ssh_public_key                          = each.value.ssh_public_key             
+  node_type                               = var.node_type
+  pod_configuration_shape                 = each.value.pod_configuration_shape    
+}
+
+
+module "virtual-nodepool" {
+  source                                  = "./modules/virtual-nodepool"
+  for_each                                = var.node_type == "Virtual" ? var.virtual-nodepool : {}
+  cluster_id                              = module.k8s-cluster.cluster_id  
+  compartment_ocid                        = var.compartment_ocid                         
+  node_pool_name                          = each.value.node_pool_name 
+  availabilitydomain                      = each.value.availabilitydomain    
+  faultdomain                             = each.value.faultdomain           
+  worker_subnet_ocid                      = each.value.worker_subnet_ocid   
+  pod_configuration_shape                 = each.value.pod_configuration_shape
+  pod_subnet_ocid                         = each.value.pod_subnet_ocid        
+  size                                    = each.value.size                
+}
