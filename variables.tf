@@ -11,7 +11,7 @@ variable "cluster_kubernetes_version" {
 
 variable "cluster_type" {
   default     = "basic"
-  description = "The cluster type. See <a href=https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengworkingwithenhancedclusters.htm>Working with Enhanced Clusters and Basic Clusters</a> for more information."
+  description = "The cluster type: basic or enhanced. See <a href=https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengworkingwithenhancedclusters.htm>Working with Enhanced Clusters and Basic Clusters</a> for more information."
   type        = string
   validation {
     condition     = contains(["basic", "enhanced"], lower(var.cluster_type))
