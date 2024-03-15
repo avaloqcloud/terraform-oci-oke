@@ -42,9 +42,9 @@ module "nodepool" {
 }
 
 
-module "virtual-nodepool" {
-  source                                  = "./modules/virtual-nodepool"
-  for_each                                = var.node_type == "Virtual" ? var.virtual-nodepool : {}
+module "virtual_nodepool" {
+  source                                  = "./modules/virtual_nodepool"
+  for_each                                = var.node_type == "Virtual" ? var.virtual_nodepool : {}
   cluster_id                              = module.k8s-cluster.cluster_id  
   compartment_ocid                        = var.compartment_ocid                         
   node_pool_name                          = each.value.node_pool_name 

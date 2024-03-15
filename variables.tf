@@ -109,7 +109,7 @@ variable "nodepool" {
 }
 
 
-variable "virtual-nodepool" {
+variable "virtual_nodepool" {
   type = map(object({
     node_pool_name = string,
     availabilitydomain = string,
@@ -120,7 +120,7 @@ variable "virtual-nodepool" {
     pod_configuration_shape = string 
   }))
   default = {
-    "virtual-nodepool" = {
+    "virtual_nodepool" = {
       node_pool_name = "virtual-nodepool",
       availabilitydomain = "Wfog:EU-ZURICH-1-AD-1",
       faultdomain = [ "FAULT-DOMAIN-1", "FAULT-DOMAIN-2", "FAULT-DOMAIN-3" ],

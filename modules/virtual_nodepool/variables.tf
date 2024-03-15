@@ -16,8 +16,6 @@ variable "availabilitydomain" {
 
 variable "faultdomain" {
    type = list(string)
-   #default = [ "FAULT-DOMAIN-1", "FAULT-DOMAIN-2", "FAULT-DOMAIN-3" ]
-   #description = "A list of fault domains in which to place nodes."
 }
 
 variable "worker_subnet_ocid" {
