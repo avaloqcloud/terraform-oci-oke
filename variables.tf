@@ -11,7 +11,7 @@ variable "cluster_kubernetes_version" {
 
 variable "cluster_type" {
   default     = "basic"
-  description = "The cluster type. See <a href=https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengworkingwithenhancedclusters.htm>Working with Enhanced Clusters and Basic Clusters</a> for more information."
+  description = "The cluster type: basic or enhanced. See <a href=https://docs.oracle.com/en-us/iaas/Content/ContEng/Tasks/contengworkingwithenhancedclusters.htm>Working with Enhanced Clusters and Basic Clusters</a> for more information."
   type        = string
   validation {
     condition     = contains(["basic", "enhanced"], lower(var.cluster_type))
@@ -109,7 +109,7 @@ variable "nodepool" {
 }
 
 
-variable "virtual-nodepool" {
+variable "virtual_nodepool" {
   type = map(object({
     node_pool_name = string,
     availabilitydomain = string,
@@ -120,7 +120,7 @@ variable "virtual-nodepool" {
     pod_configuration_shape = string 
   }))
   default = {
-    "virtual-nodepool" = {
+    "virtual_nodepool" = {
       node_pool_name = "virtual-nodepool",
       availabilitydomain = "Wfog:EU-ZURICH-1-AD-1",
       faultdomain = [ "FAULT-DOMAIN-1", "FAULT-DOMAIN-2", "FAULT-DOMAIN-3" ],

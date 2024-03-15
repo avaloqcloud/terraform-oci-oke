@@ -1,0 +1,65 @@
+title: "Kubernetes Cluster Deployment"
+description: "Kubernetes Cluster Deployment (OKE) in OCI"
+outputGroups:
+- title: "Kubernetes Cluster"
+schemaVersion: 1.1.0
+locale: "en"
+variableGroups:
+  - title: "OCI(Oracle Cloud Infrastructure) details"
+    variables:
+      - compartment_ocid
+      - cluster_name
+      - cluster_kubernetes_version
+      - cluster_type
+      - vcn_id
+      - control_plane_subnet_id
+      - loadbalancer_subnet_ocid
+      - cni_type
+      - is_public_ip_enabled
+      - node_type
+      - nodepool
+      - virtual_nodepool
+      - pods_cidr
+      - services_cidr
+
+variables:
+  compartment_ocid:
+    type: oci:identity:compartment:id
+    required: true
+    description: "Select the OCI compartment within your tenancy for instance creation"
+    title: "Compartment"
+  cluster_type: 
+    type: enum
+    enum: 
+     - basic
+     - enhanced
+    required: true
+    title: Cluster type
+  cni_type:
+    type: enum
+    enum: 
+     - OCI_VCN_IP_NATIVE
+     - FLANNEL_OVERLAY
+    required: true
+    title: Node type
+  node_type:
+    type: enum
+    enum: 
+     - Managed
+     - Virtual
+    required: true
+    title: Node type
+  nodepool:
+    required: true
+    description: "A node pool is a set of compute nodes within a cluster that all have the same configuration, and can be scaled independently from other node pools."
+    visible:
+      eq:
+        - ${node_type}
+        - Managed
+  virtual_nodepool:
+    required: true
+    description: "For virtual nodepool cluster_type must be enhanced."
+    visible:
+      eq:
+        - ${node_type}
+        - Virtual 
