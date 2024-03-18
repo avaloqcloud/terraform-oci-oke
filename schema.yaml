@@ -11,6 +11,7 @@ variableGroups:
       - cluster_name
       - cluster_kubernetes_version
       - cluster_type
+      - addon_name
       - vcn_id
       - control_plane_subnet_id
       - loadbalancer_subnet_ocid

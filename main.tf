@@ -17,6 +17,15 @@ module "k8s-cluster" {
   }, lower(var.cluster_type), "BASIC_CLUSTER")
 }
 
+module "add-ons" {
+  source = "./modules/add-ons"
+  for_each = toset(var.addon_name)
+  addon_name = each.value
+  cluster_id = module.k8s-cluster.cluster_id
+  cluster_type = var.cluster_type
+
+  depends_on = [ module.k8s-cluster ]
+}
 
 module "nodepool" {  
   source                                  = "./modules/nodepool"  
