@@ -71,6 +71,12 @@ variable "node_type" {
    description = "The type of the node pool: Managed or Virtual"
 }
 
+variable "addon_name" {
+  type = list(string)
+  default = [ "none" ]
+  description = "Add-on management is only supported on enhaned cluster types. Supported list of add-ons: KubernetesDashboard, CertManager, CoreDNS, Istio, KubeProxy, WeblogicKubernetesOperator"
+}
+
 ############## NodeGroup Variables ##################
 
 variable "nodepool" {
