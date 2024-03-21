@@ -1,3 +1,5 @@
+provider "oci" {
+}
 
 module "k8s-cluster" {
   source                           = "./modules/k8s-cluster"
