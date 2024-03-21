@@ -1,4 +1,5 @@
 provider "oci" {
+  region = "eu-dcc-zurich-1"
 }
 
 module "k8s-cluster" {
