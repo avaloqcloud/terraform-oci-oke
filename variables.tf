@@ -64,6 +64,18 @@ variable "loadbalancer_subnet_ocid" {
   description = "The OCIDs of the subnets used for Kubernetes services load balancers."
 } 
 
+variable "add_network_security_group" {
+  type = bool
+  default = false
+  description = "A list of the OCIDs of the network security groups (NSGs) to apply to the cluster endpoint"
+}
+
+variable "network_security_group_id" {
+  type = list(string)
+  default = [ "" ]
+  #default = ""
+}
+
 variable "node_type" {
    #type = string
    type = string

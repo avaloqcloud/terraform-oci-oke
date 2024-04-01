@@ -7,7 +7,8 @@ module "k8s-cluster" {
   cni_type                         = var.cni_type                         
   is_public_ip_enabled             = var.is_public_ip_enabled           
   control_plane_subnet_id          = var.control_plane_subnet_id       
-  loadbalancer_subnet_ocid         = var.loadbalancer_subnet_ocid         
+  loadbalancer_subnet_ocid         = var.loadbalancer_subnet_ocid  
+  network_security_group_id        = var.network_security_group_id
   pods_cidr                        = var.pods_cidr                         
   services_cidr                    = var.services_cidr                   
   cluster_type = lookup({

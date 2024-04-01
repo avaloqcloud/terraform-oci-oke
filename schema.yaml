@@ -15,6 +15,8 @@ variableGroups:
       - vcn_id
       - control_plane_subnet_id
       - loadbalancer_subnet_ocid
+      - add_network_security_group
+      - network_security_group_id
       - cni_type
       - is_public_ip_enabled
       - node_type
@@ -64,3 +66,17 @@ variables:
       eq:
         - ${node_type}
         - Virtual 
+
+  # add_network_security_group:
+  #   type: boolean
+
+  network_security_group_id:
+    visible:
+      or:
+        - ${add_network_security_group}
+        - and:
+            - and:
+                - true
+                - true
+            - not:
+                - false
