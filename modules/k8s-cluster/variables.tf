@@ -2,11 +2,12 @@ variable "network_security_group_id" {
   #type = string
   type = list(string)
 }
-
+/* 
 variable "add_network_security_group" {
   type = bool
   
-}
+} */
+
 variable "compartment_ocid" {
   type        = string
 }
