@@ -17,8 +17,8 @@ variableGroups:
       - loadbalancer_subnet_ocid
       - add_network_security_group
       - network_security_group_id
-      - cni_type
       - is_public_ip_enabled
+      - cni_type
       - node_type
       - nodepool
       - virtual_nodepool
