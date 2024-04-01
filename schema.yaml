@@ -67,16 +67,8 @@ variables:
         - ${node_type}
         - Virtual 
 
-  # add_network_security_group:
-  #   type: boolean
+  add_network_security_group:
+   type: boolean
 
   network_security_group_id:
-    visible:
-      or:
-        - ${add_network_security_group}
-        - and:
-            - and:
-                - true
-                - true
-            - not:
-                - false
+    visible: ${add_network_security_group}
