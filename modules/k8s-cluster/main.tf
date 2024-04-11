@@ -13,7 +13,7 @@ resource "oci_containerengine_cluster" "cluster" {
 
         #Optional
         is_public_ip_enabled = var.is_public_ip_enabled
-        nsg_ids = var.network_security_group_id
+        nsg_ids = toset(var.network_security_group_id) #var.network_security_group_id
         subnet_id = var.control_plane_subnet_id
     }
 
