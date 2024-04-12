@@ -98,7 +98,7 @@ variable "nodepool" {
   default = {
     "nodepool" = {
       node_pool_name = "managed-nodepool",
-      image_id = "ocid1.image.oc1.eu-zurich-1.aaaaaaaa4gholoh5cndh6fxhm4nsbnrfyrtpy6wbnkablzhg2xjfw2iutq7q",
+      image_id = "<Enter-image-ocid-here>",
       node_shape = "VM.Standard.E3.Flex",
       availabilitydomain = "Wfog:EU-ZURICH-1-AD-1",
       faultdomain = [ "FAULT-DOMAIN-1", "FAULT-DOMAIN-2", "FAULT-DOMAIN-3" ],
