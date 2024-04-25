@@ -48,8 +48,8 @@ module "nodepool" {
   ssh_public_key                          = each.value.ssh_public_key             
   node_type                               = var.node_type
   pod_configuration_shape                 = each.value.pod_configuration_shape    
-  node_nsg_ids                            = var.node_nsg_ids #each.value.node_nsg_ids
-  pod_nsg_ids                             = var.pod_nsg_ids #each.value.pod_nsg_ids
+  node_nsg_ids                            = each.value.node_nsg_ids #var.node_nsg_ids 
+  pod_nsg_ids                             = each.value.pod_nsg_ids #var.pod_nsg_ids
 }
 
 

@@ -105,8 +105,8 @@ variable "nodepool" {
     ocpus = number,
     ssh_public_key = string,
     pod_configuration_shape = string, 
-    #node_nsg_ids = list(string),
-    #pod_nsg_ids = list(string)
+    node_nsg_ids = list(string),
+    pod_nsg_ids = list(string)
   }))
   default = {
     "nodepool" = {
@@ -123,13 +123,13 @@ variable "nodepool" {
       pod_configuration_shape = "Pod.Standard.E3.Flex",
 	    worker_subnet_ocid = "<Enter-worker-subnet-ocid-here>",
 	    pod_subnet_ocid = "<Enter-pod-subnet-ocid-here>",
-      #node_nsg_ids = [],
-      #pod_nsg_ids = []
+      node_nsg_ids = [],
+      pod_nsg_ids = []
     }
   }
 }
 
-variable "node_nsg_ids" {
+/* variable "node_nsg_ids" {
   type = list(string)
   default = [ ]
 }
@@ -137,7 +137,7 @@ variable "node_nsg_ids" {
 variable "pod_nsg_ids" {
   type = list(string)
   default = [ ]
-}
+} */
 
 variable "virtual_nodepool" {
   type = map(object({
