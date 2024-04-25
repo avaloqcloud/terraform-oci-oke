@@ -64,5 +64,7 @@ module "virtual_nodepool" {
   worker_subnet_ocid                      = each.value.worker_subnet_ocid   
   pod_configuration_shape                 = each.value.pod_configuration_shape
   pod_subnet_ocid                         = each.value.pod_subnet_ocid        
-  size                                    = each.value.size                
+  size                                    = each.value.size   
+  node_nsg_ids                            = each.value.node_nsg_ids
+  pod_nsg_ids                             = each.value.pod_nsg_ids
 }

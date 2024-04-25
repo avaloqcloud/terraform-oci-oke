@@ -33,3 +33,11 @@ variable "pod_subnet_ocid" {
 variable "size" {
    type  = number
 }
+
+variable "pod_nsg_ids" {
+    type = list(string)
+}
+
+variable "node_nsg_ids" {
+    type = list(string)
+}

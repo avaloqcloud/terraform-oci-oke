@@ -147,7 +147,9 @@ variable "virtual_nodepool" {
     faultdomain = list(string),
     size = number,
     pod_subnet_ocid = string,
-    pod_configuration_shape = string 
+    pod_configuration_shape = string,
+    node_nsg_ids = list(string),
+    pod_nsg_ids = list(string)
   }))
   default = {
     "virtual_nodepool" = {
@@ -157,7 +159,9 @@ variable "virtual_nodepool" {
       size = 2,
       pod_configuration_shape = "Pod.Standard.E3.Flex",
 	    worker_subnet_ocid = "<Enter-worker-subnet-ocid-here>",
-	    pod_subnet_ocid = "<Enter-pod-subnet-ocid-here>"
+	    pod_subnet_ocid = "<Enter-pod-subnet-ocid-here>",
+      node_nsg_ids = [],
+      pod_nsg_ids = []
     }
   }
 }
