@@ -21,6 +21,8 @@ variableGroups:
       - cni_type
       - node_type
       - nodepool
+      - node_nsg_ids
+      - pod_nsg_ids
       - virtual_nodepool
       - pods_cidr
       - services_cidr

@@ -25,7 +25,9 @@ resource "oci_containerengine_node_pool" "node_pool" {
       cni_type          = var.cni_type
       max_pods_per_node = var.max_pods_per_node
       pod_subnet_ids    = [var.pod_subnet_ocid]
+      pod_nsg_ids       = var.pod_nsg_ids    #Added this line
     }
+    nsg_ids = var.node_nsg_ids   #Added this line
   }
 
   node_shape_config {

@@ -72,8 +72,7 @@ variable "add_network_security_group" {
 
 variable "network_security_group_id" {
   type = list(string)
-  default = [ "" ]
-
+  default = [ ]
 }
 
 variable "node_type" {
@@ -105,7 +104,9 @@ variable "nodepool" {
     memory = number,
     ocpus = number,
     ssh_public_key = string,
-    pod_configuration_shape = string 
+    pod_configuration_shape = string, 
+    node_nsg_ids = list(string),
+    pod_nsg_ids = list(string)
   }))
   default = {
     "nodepool" = {
@@ -121,7 +122,9 @@ variable "nodepool" {
       ssh_public_key = "<Enter-sshkey-here>",
       pod_configuration_shape = "Pod.Standard.E3.Flex",
 	    worker_subnet_ocid = "<Enter-worker-subnet-ocid-here>",
-	    pod_subnet_ocid = "<Enter-pod-subnet-ocid-here>"
+	    pod_subnet_ocid = "<Enter-pod-subnet-ocid-here>",
+      node_nsg_ids = [],
+      pod_nsg_ids = []
     }
   }
 }

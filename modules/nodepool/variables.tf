@@ -76,3 +76,11 @@ variable "pod_configuration_shape" {
 variable "cluster_id" {
    type = string
 }
+
+variable "pod_nsg_ids" {
+   type = list(string)
+}
+
+variable "node_nsg_ids" {
+   type = list(string)
+}
