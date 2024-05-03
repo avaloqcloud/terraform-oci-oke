@@ -72,7 +72,7 @@ variable "add_network_security_group" {
 
 variable "network_security_group_id" {
   type = list(string)
-  default = [ ]
+  default = [ "ocid1.networksecuritygroup.oc1.eu-zurich-1.aaaaaaaauakjbdvmidlhozifxul7zepgybhtt2afdk4wmtzzptadvh5ti5va" ]
 }
 
 variable "node_type" {
