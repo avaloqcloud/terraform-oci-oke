@@ -1,6 +1,6 @@
 resource "oci_containerengine_cluster" "cluster" {
 
-    compartment_id = var.compartment_ocid
+    compartment_id = var.compartment_id
     kubernetes_version = var.cluster_kubernetes_version
     name = var.cluster_name
     vcn_id = var.vcn_id
@@ -27,7 +27,7 @@ resource "oci_containerengine_cluster" "cluster" {
       pods_cidr     = var.pods_cidr
       services_cidr = var.services_cidr
     }
-    
+
     persistent_volume_config {
       defined_tags  = var.defined_tags
       freeform_tags = var.freeform_tags
@@ -38,7 +38,7 @@ resource "oci_containerengine_cluster" "cluster" {
       freeform_tags = var.freeform_tags
     }
 
-    service_lb_subnet_ids = compact([var.loadbalancer_subnet_ocid])
+    service_lb_subnet_ids = compact([var.loadbalancer_subnet_id])
   }
 
   type = var.cluster_type

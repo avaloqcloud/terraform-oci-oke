@@ -1,6 +1,6 @@
 ############### Cluster Variables ##########
 
-variable "compartment_ocid" {
+variable "compartment_id" {
   type        = string
 }
 
@@ -51,17 +51,17 @@ variable "cluster_name" {
 
 variable "vcn_id" {
   type        = string
-  description = "The OCID of the virtual cloud network (VCN) in which to create the cluster."
+  description = "The id of the virtual cloud network (VCN) in which to create the cluster."
 }
 
 variable "control_plane_subnet_id" {
   type        = string
-  description = "The OCID of the regional subnet in which to place the Cluster endpoint."
+  description = "The id of the regional subnet in which to place the Cluster endpoint."
 }
 
-variable "loadbalancer_subnet_ocid" {
+variable "loadbalancer_subnet_id" {
   type        = string
-  description = "The OCIDs of the subnets used for Kubernetes services load balancers."
+  description = "The ids of the subnets used for Kubernetes services load balancers."
 } 
 
 variable "node_type" {
@@ -97,11 +97,11 @@ variable "nodepool" {
     image_id = string,
     node_shape = string,
     availabilitydomain = string,
-    worker_subnet_ocid = string,
+    worker_subnet_id = string,
     faultdomain = list(string),
     size = number,
     max_pods_per_node = number,
-    pod_subnet_ocid = string,
+    pod_subnet_id = string,
     memory = number,
     ocpus = number,
     ssh_public_key = string,
@@ -110,7 +110,7 @@ variable "nodepool" {
   default = {
     "nodepool" = {
       node_pool_name = "managed-nodepool",
-      image_id = "<Enter-image-ocid-here>",
+      image_id = "<Enter-image-id-here>",
       node_shape = "VM.Standard.E3.Flex",
       availabilitydomain = "Wfog:EU-ZURICH-1-AD-1",
       faultdomain = [ "FAULT-DOMAIN-1", "FAULT-DOMAIN-2", "FAULT-DOMAIN-3" ],
@@ -120,8 +120,8 @@ variable "nodepool" {
       ocpus = 4,
       ssh_public_key = "<Enter-sshkey-here>",
       pod_configuration_shape = "Pod.Standard.E3.Flex",
-	    worker_subnet_ocid = "<Enter-worker-subnet-ocid-here>",
-	    pod_subnet_ocid = "<Enter-pod-subnet-ocid-here>"
+	    worker_subnet_id = "<Enter-worker-subnet-id-here>",
+	    pod_subnet_id = "<Enter-pod-subnet-id-here>"
     }
   }
 }
@@ -131,10 +131,10 @@ variable "virtual_nodepool" {
   type = map(object({
     node_pool_name = string,
     availabilitydomain = string,
-    worker_subnet_ocid = string,
+    worker_subnet_id = string,
     faultdomain = list(string),
     size = number,
-    pod_subnet_ocid = string,
+    pod_subnet_id = string,
     pod_configuration_shape = string 
   }))
   default = {
@@ -144,8 +144,8 @@ variable "virtual_nodepool" {
       faultdomain = [ "FAULT-DOMAIN-1", "FAULT-DOMAIN-2", "FAULT-DOMAIN-3" ],
       size = 2,
       pod_configuration_shape = "Pod.Standard.E3.Flex",
-	    worker_subnet_ocid = "<Enter-worker-subnet-ocid-here>",
-	    pod_subnet_ocid = "<Enter-pod-subnet-ocid-here>"
+	    worker_subnet_id = "<Enter-worker-subnet-id-here>",
+	    pod_subnet_id = "<Enter-pod-subnet-id-here>"
     }
   }
 }

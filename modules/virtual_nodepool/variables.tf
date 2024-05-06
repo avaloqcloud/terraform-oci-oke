@@ -2,7 +2,7 @@ variable "cluster_id" {
     type = string
 }
 
-variable "compartment_ocid" {
+variable "compartment_id" {
     type = string
 }
 
@@ -18,7 +18,7 @@ variable "faultdomain" {
    type = list(string)
 }
 
-variable "worker_subnet_ocid" {
+variable "worker_subnet_id" {
     type = string
 }
 
@@ -26,7 +26,7 @@ variable "pod_configuration_shape" {
     type = string
 }
 
-variable "pod_subnet_ocid" {
+variable "pod_subnet_id" {
     type = string
 }
 
