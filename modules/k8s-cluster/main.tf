@@ -46,6 +46,9 @@ resource "oci_containerengine_cluster" "cluster" {
   timeouts {
     update = "120m"
   }
+  defined_tags  = var.defined_tags
+  freeform_tags = var.freeform_tags
+
 }
 
 output "cluster_id" {
