@@ -46,3 +46,11 @@ variable "cluster_type" {
     type = string
   
 } */
+
+variable "defined_tags" {
+  type = map(string)
+}
+
+variable "freeform_tags" {
+  type = map(string)
+}

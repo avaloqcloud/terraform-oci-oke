@@ -77,6 +77,18 @@ variable "addon_name" {
   description = "Add-on management is only supported on enhaned cluster types. Supported list of add-ons: KubernetesDashboard, CertManager, CoreDNS, Istio, KubeProxy, WeblogicKubernetesOperator"
 }
 
+variable "defined_tags" {
+  description = "Defined tags for this resource."
+  type        = map(string)
+  default     = {}
+}
+
+variable "freeform_tags" {
+  description = "Free-form tags for this resource."
+  type        = map(string)
+  default     = {}
+}
+
 ############## NodeGroup Variables ##################
 
 variable "nodepool" {

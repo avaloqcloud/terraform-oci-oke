@@ -14,6 +14,10 @@ module "k8s-cluster" {
     "basic"    = "BASIC_CLUSTER",
     "enhanced" = "ENHANCED_CLUSTER"
   }, lower(var.cluster_type), "BASIC_CLUSTER")
+
+  defined_tags  = var.defined_tags
+  freeform_tags = var.freeform_tags
+
 }
 
 module "add-ons" {

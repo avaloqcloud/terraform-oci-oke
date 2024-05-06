@@ -27,6 +27,16 @@ resource "oci_containerengine_cluster" "cluster" {
       pods_cidr     = var.pods_cidr
       services_cidr = var.services_cidr
     }
+    
+    persistent_volume_config {
+      defined_tags  = var.defined_tags
+      freeform_tags = var.freeform_tags
+    }
+
+    service_lb_config {
+      defined_tags  = var.defined_tags
+      freeform_tags = var.freeform_tags
+    }
 
     service_lb_subnet_ids = compact([var.loadbalancer_subnet_ocid])
   }
