@@ -11,6 +11,9 @@ resource "oci_containerengine_virtual_node_pool" "virtual_node_pool" {
         subnet_id = var.worker_subnet_id
     }
 
+    defined_tags  = var.defined_tags
+    freeform_tags = var.freeform_tags
+
     pod_configuration {
         #Required
         shape = var.pod_configuration_shape
@@ -18,4 +21,12 @@ resource "oci_containerengine_virtual_node_pool" "virtual_node_pool" {
 
     }
     size = var.size
+
+    virtual_node_tags {
+
+        #Optional
+        defined_tags  = var.defined_tags
+        freeform_tags = var.freeform_tags
+    }
+
 }

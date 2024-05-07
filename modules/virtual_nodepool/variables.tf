@@ -33,3 +33,11 @@ variable "pod_subnet_id" {
 variable "size" {
    type  = number
 }
+
+variable "defined_tags" {
+  type = map(string)
+}
+
+variable "freeform_tags" {
+  type = map(string)
+}

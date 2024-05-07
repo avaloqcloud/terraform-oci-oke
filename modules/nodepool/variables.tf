@@ -76,3 +76,11 @@ variable "pod_configuration_shape" {
 variable "cluster_id" {
    type = string
 }
+
+variable "defined_tags" {
+  type = map(string)
+}
+
+variable "freeform_tags" {
+  type = map(string)
+}

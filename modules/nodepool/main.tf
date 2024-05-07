@@ -26,6 +26,9 @@ resource "oci_containerengine_node_pool" "node_pool" {
       max_pods_per_node = var.max_pods_per_node
       pod_subnet_ids    = [var.pod_subnet_id]
     }
+    
+    defined_tags  = var.defined_tags
+    freeform_tags = var.freeform_tags
   }
 
   node_shape_config {
@@ -34,4 +37,8 @@ resource "oci_containerengine_node_pool" "node_pool" {
   }
 
   ssh_public_key = var.ssh_public_key
+
+  defined_tags  = var.defined_tags
+  freeform_tags = var.freeform_tags
+
 }
