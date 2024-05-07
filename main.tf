@@ -49,8 +49,7 @@ module "nodepool" {
   memory                                  = each.value.memory                     
   ocpus                                   = each.value.ocpus                      
   ssh_public_key                          = each.value.ssh_public_key             
-  node_type                               = var.node_type
-  pod_configuration_shape                 = each.value.pod_configuration_shape    
+  node_type                               = var.node_type 
   defined_tags                            = var.defined_tags
   freeform_tags                           = var.freeform_tags
 

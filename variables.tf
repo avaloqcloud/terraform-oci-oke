@@ -104,8 +104,7 @@ variable "nodepool" {
     pod_subnet_id = string,
     memory = number,
     ocpus = number,
-    ssh_public_key = string,
-    pod_configuration_shape = string 
+    ssh_public_key = string
   }))
   default = {
     "nodepool" = {
@@ -119,7 +118,6 @@ variable "nodepool" {
       memory = 32,
       ocpus = 4,
       ssh_public_key = "<Enter-sshkey-here>",
-      pod_configuration_shape = "Pod.Standard.E3.Flex",
 	    worker_subnet_id = "<Enter-worker-subnet-id-here>",
 	    pod_subnet_id = "<Enter-pod-subnet-id-here>"
     }
