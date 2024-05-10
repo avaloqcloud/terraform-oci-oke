@@ -67,12 +67,6 @@ variable "node_type" {
   
 }
 
-variable "pod_configuration_shape" {
-   type = string
-   #default = "Pod.Standard.E3.Flex"
-  
-}
-
 variable "cluster_id" {
    type = string
 }
