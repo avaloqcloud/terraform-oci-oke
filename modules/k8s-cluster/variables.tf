@@ -1,3 +1,8 @@
+variable "network_security_group_id" {
+  #type = string
+  type = list(string)
+}
+
 variable "compartment_id" {
   type        = string
 }

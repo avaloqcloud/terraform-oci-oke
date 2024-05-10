@@ -41,3 +41,11 @@ variable "defined_tags" {
 variable "freeform_tags" {
   type = map(string)
 }
+
+variable "pod_nsg_ids" {
+   type = list(string)
+}
+
+variable "node_nsg_ids" {
+   type = list(string)
+}

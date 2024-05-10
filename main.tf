@@ -7,7 +7,8 @@ module "k8s-cluster" {
   cni_type                         = var.cni_type                         
   is_public_ip_enabled             = var.is_public_ip_enabled           
   control_plane_subnet_id          = var.control_plane_subnet_id       
-  loadbalancer_subnet_id           = var.loadbalancer_subnet_id         
+  loadbalancer_subnet_id           = var.loadbalancer_subnet_id   
+  network_security_group_id        = var.network_security_group_id    
   pods_cidr                        = var.pods_cidr                         
   services_cidr                    = var.services_cidr                   
   cluster_type = lookup({
@@ -52,6 +53,8 @@ module "nodepool" {
   node_type                               = var.node_type 
   defined_tags                            = var.defined_tags
   freeform_tags                           = var.freeform_tags
+  node_nsg_ids                            = each.value.node_nsg_ids
+  pod_nsg_ids                             = each.value.pod_nsg_ids
 
 }
 
@@ -69,5 +72,7 @@ module "virtual_nodepool" {
   size                                    = each.value.size  
   defined_tags                            = var.defined_tags
   freeform_tags                           = var.freeform_tags
+  node_nsg_ids                            = each.value.node_nsg_ids
+  pod_nsg_ids                             = each.value.pod_nsg_ids
               
 }
