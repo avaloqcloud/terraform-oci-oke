@@ -21,6 +21,8 @@ resource "oci_containerengine_node_pool" "node_pool" {
     }
     size = var.size
 
+    kms_key_id = var.kms_key_id
+    
     node_pool_pod_network_option_details {
       cni_type          = var.cni_type
       max_pods_per_node = var.max_pods_per_node

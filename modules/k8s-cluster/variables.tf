@@ -3,6 +3,14 @@ variable "network_security_group_id" {
   type = list(string)
 }
 
+variable "cluster_image_policy_config_is_policy_enabled" {
+  type = bool
+}
+
+variable "kms_key_id" {
+  type = string
+}
+
 variable "compartment_id" {
   type        = string
 }

@@ -100,6 +100,17 @@ variable "freeform_tags" {
   default     = {}
 }
 
+variable "cluster_image_policy_config_is_policy_enabled" {
+  type = bool
+  default = false
+}
+
+variable "kms_key_id" {
+  type = string
+  default = ""
+}
+
+
 ############## NodeGroup Variables ##################
 
 variable "nodepool" {

@@ -86,3 +86,8 @@ variable "pod_nsg_ids" {
 variable "node_nsg_ids" {
    type = list(string)
 }
+
+variable "kms_key_id" {
+   type = string
+  
+}
