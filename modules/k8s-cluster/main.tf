@@ -1,6 +1,6 @@
 resource "oci_containerengine_cluster" "cluster" {
 
-    compartment_id = var.compartment_ocid
+    compartment_id = var.compartment_id
     kubernetes_version = var.cluster_kubernetes_version
     name = var.cluster_name
     vcn_id = var.vcn_id
@@ -28,7 +28,7 @@ resource "oci_containerengine_cluster" "cluster" {
       services_cidr = var.services_cidr
     }
 
-    service_lb_subnet_ids = compact([var.loadbalancer_subnet_ocid])
+    service_lb_subnet_ids = compact([var.loadbalancer_subnet_id])
   }
 
   type = var.cluster_type

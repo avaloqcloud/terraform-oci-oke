@@ -8,7 +8,7 @@ variable "add_network_security_group" {
   
 } */
 
-variable "compartment_ocid" {
+variable "compartment_id" {
   type        = string
 }
 
@@ -36,7 +36,7 @@ variable "control_plane_subnet_id" {
   type        = string
 }
 
-variable "loadbalancer_subnet_ocid" {
+variable "loadbalancer_subnet_id" {
   type        = string
 }
 

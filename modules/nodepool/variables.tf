@@ -4,7 +4,7 @@ variable "node_pool_name" {
    type        = string
 }
 
-variable "compartment_ocid" {
+variable "compartment_id" {
    type        = string
 }
 
@@ -28,7 +28,7 @@ variable "availabilitydomain" {
    type        = string
 }
 
-variable "worker_subnet_ocid" {
+variable "worker_subnet_id" {
    type        = string
 }
 
@@ -46,7 +46,7 @@ variable "max_pods_per_node" {
    type        = number
 }
 
-variable "pod_subnet_ocid" {
+variable "pod_subnet_id" {
    type        = string
 }
 

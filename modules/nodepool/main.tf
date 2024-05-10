@@ -4,7 +4,7 @@ resource "oci_containerengine_node_pool" "node_pool" {
 
   name               = var.node_pool_name
   cluster_id         = var.cluster_id
-  compartment_id     = var.compartment_ocid
+  compartment_id     = var.compartment_id
   kubernetes_version = var.cluster_kubernetes_version
 
   node_shape = var.node_shape
@@ -16,7 +16,7 @@ resource "oci_containerengine_node_pool" "node_pool" {
   node_config_details {
     placement_configs {
       availability_domain = var.availabilitydomain
-      subnet_id           = var.worker_subnet_ocid
+      subnet_id           = var.worker_subnet_id
       fault_domains       = var.faultdomain
     }
     size = var.size
@@ -24,7 +24,7 @@ resource "oci_containerengine_node_pool" "node_pool" {
     node_pool_pod_network_option_details {
       cni_type          = var.cni_type
       max_pods_per_node = var.max_pods_per_node
-      pod_subnet_ids    = [var.pod_subnet_ocid]
+      pod_subnet_ids    = [var.pod_subnet_id]
       pod_nsg_ids       = var.pod_nsg_ids  
     } 
     nsg_ids = var.node_nsg_ids
