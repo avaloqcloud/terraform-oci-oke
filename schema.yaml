@@ -15,10 +15,14 @@ variableGroups:
       - vcn_id
       - control_plane_subnet_id
       - loadbalancer_subnet_id
-      - cni_type
+      - add_network_security_group
+      - network_security_group_id
       - is_public_ip_enabled
+      - cni_type
       - node_type
       - nodepool
+      - node_nsg_ids
+      - pod_nsg_ids
       - virtual_nodepool
       - pods_cidr
       - services_cidr
@@ -64,3 +68,9 @@ variables:
       eq:
         - ${node_type}
         - Virtual 
+
+  add_network_security_group:
+   type: boolean
+
+  network_security_group_id:
+    visible: ${add_network_security_group}

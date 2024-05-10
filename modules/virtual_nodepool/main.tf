@@ -10,6 +10,7 @@ resource "oci_containerengine_virtual_node_pool" "virtual_node_pool" {
         fault_domain = var.faultdomain
         subnet_id = var.worker_subnet_id
     }
+    nsg_ids = var.node_nsg_ids
 
     defined_tags  = var.defined_tags
     freeform_tags = var.freeform_tags
@@ -18,6 +19,7 @@ resource "oci_containerengine_virtual_node_pool" "virtual_node_pool" {
         #Required
         shape = var.pod_configuration_shape
         subnet_id = var.pod_subnet_id
+        nsg_ids = var.pod_nsg_ids
 
     }
     size = var.size

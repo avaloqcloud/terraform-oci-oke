@@ -64,6 +64,17 @@ variable "loadbalancer_subnet_id" {
   description = "The ids of the subnets used for Kubernetes services load balancers."
 } 
 
+variable "add_network_security_group" {
+  type = bool
+  default = false
+  description = "A list of the ids of the network security groups (NSGs) to apply to the cluster endpoint"
+}
+
+variable "network_security_group_id" {
+  type = list(string)
+  default = [ ]
+}
+
 variable "node_type" {
    #type = string
    type = string
@@ -104,7 +115,9 @@ variable "nodepool" {
     pod_subnet_id = string,
     memory = number,
     ocpus = number,
-    ssh_public_key = string
+    ssh_public_key = string,
+    node_nsg_ids = list(string),
+    pod_nsg_ids = list(string)
   }))
   default = {
     "nodepool" = {
@@ -120,6 +133,8 @@ variable "nodepool" {
       ssh_public_key = "<Enter-sshkey-here>",
 	    worker_subnet_id = "<Enter-worker-subnet-id-here>",
 	    pod_subnet_id = "<Enter-pod-subnet-id-here>"
+      node_nsg_ids = [],
+      pod_nsg_ids = []
     }
   }
 }
@@ -133,7 +148,9 @@ variable "virtual_nodepool" {
     faultdomain = list(string),
     size = number,
     pod_subnet_id = string,
-    pod_configuration_shape = string 
+    pod_configuration_shape = string,
+    node_nsg_ids = list(string),
+    pod_nsg_ids = list(string)
   }))
   default = {
     "virtual_nodepool" = {
@@ -143,7 +160,9 @@ variable "virtual_nodepool" {
       size = 2,
       pod_configuration_shape = "Pod.Standard.E3.Flex",
 	    worker_subnet_id = "<Enter-worker-subnet-id-here>",
-	    pod_subnet_id = "<Enter-pod-subnet-id-here>"
+	    pod_subnet_id = "<Enter-pod-subnet-id-here>",
+      node_nsg_ids = [],
+      pod_nsg_ids = []
     }
   }
 }
