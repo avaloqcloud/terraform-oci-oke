@@ -103,6 +103,7 @@ variable "freeform_tags" {
 variable "cluster_image_policy_config_is_policy_enabled" {
   type = bool
   default = false
+  description = "Whether the image verification policy is enabled. Defaults to false. If set to true, the images will be verified against the policy at runtime."
 }
 
 variable "kms_key_id" {
