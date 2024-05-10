@@ -104,7 +104,6 @@ variable "nodepool" {
     memory = number,
     ocpus = number,
     ssh_public_key = string,
-    pod_configuration_shape = string, 
     node_nsg_ids = list(string),
     pod_nsg_ids = list(string)
   }))
@@ -120,9 +119,8 @@ variable "nodepool" {
       memory = 32,
       ocpus = 4,
       ssh_public_key = "<Enter-sshkey-here>",
-      pod_configuration_shape = "Pod.Standard.E3.Flex",
-	    worker_subnet_ocid = "<Enter-worker-subnet-ocid-here>",
-	    pod_subnet_ocid = "<Enter-pod-subnet-ocid-here>",
+      worker_subnet_ocid = "<Enter-worker-subnet-ocid-here>",
+      pod_subnet_ocid = "<Enter-pod-subnet-ocid-here>",
       node_nsg_ids = [],
       pod_nsg_ids = []
     }
@@ -158,8 +156,8 @@ variable "virtual_nodepool" {
       faultdomain = [ "FAULT-DOMAIN-1", "FAULT-DOMAIN-2", "FAULT-DOMAIN-3" ],
       size = 2,
       pod_configuration_shape = "Pod.Standard.E3.Flex",
-	    worker_subnet_ocid = "<Enter-worker-subnet-ocid-here>",
-	    pod_subnet_ocid = "<Enter-pod-subnet-ocid-here>",
+      worker_subnet_ocid = "<Enter-worker-subnet-ocid-here>",
+      pod_subnet_ocid = "<Enter-pod-subnet-ocid-here>",
       node_nsg_ids = [],
       pod_nsg_ids = []
     }
