@@ -12,7 +12,6 @@ variableGroups:
       - cluster_kubernetes_version
       - cluster_type
       - addon_name
-      - cluster_image_policy_config_is_policy_enabled
       - kms_key_id
       - vcn_id
       - control_plane_subnet_id

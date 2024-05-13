@@ -11,7 +11,6 @@ module "k8s-cluster" {
   network_security_group_id        = var.network_security_group_id    
   pods_cidr                        = var.pods_cidr                         
   services_cidr                    = var.services_cidr       
-  cluster_image_policy_config_is_policy_enabled = var.cluster_image_policy_config_is_policy_enabled 
   kms_key_id                       = var.kms_key_id
   cluster_type = lookup({
     "basic"    = "BASIC_CLUSTER",
@@ -57,7 +56,7 @@ module "nodepool" {
   freeform_tags                           = var.freeform_tags
   node_nsg_ids                            = each.value.node_nsg_ids
   pod_nsg_ids                             = each.value.pod_nsg_ids
-
+  kms_key_id                              = each.value.kms_key_id
 }
 
 module "virtual_nodepool" {

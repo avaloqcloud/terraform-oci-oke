@@ -100,12 +100,6 @@ variable "freeform_tags" {
   default     = {}
 }
 
-variable "cluster_image_policy_config_is_policy_enabled" {
-  type = bool
-  default = false
-  description = "Whether the image verification policy is enabled. Defaults to false. If set to true, the images will be verified against the policy at runtime."
-}
-
 variable "kms_key_id" {
   type = string
   default = ""
@@ -130,6 +124,7 @@ variable "nodepool" {
     ssh_public_key = string,
     node_nsg_ids = list(string),
     pod_nsg_ids = list(string)
+    kms_key_id = string
   }))
   default = {
     "nodepool" = {
@@ -147,6 +142,7 @@ variable "nodepool" {
 	    pod_subnet_id = "<Enter-pod-subnet-id-here>"
       node_nsg_ids = [],
       pod_nsg_ids = []
+      kms_key_id = "<Enter-kms-key-id-here>"
     }
   }
 }

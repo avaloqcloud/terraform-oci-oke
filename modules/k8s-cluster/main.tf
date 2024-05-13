@@ -17,16 +17,6 @@ resource "oci_containerengine_cluster" "cluster" {
         subnet_id = var.control_plane_subnet_id
     }
 
-    image_policy_config {
-
-        #Optional
-        is_policy_enabled = var.cluster_image_policy_config_is_policy_enabled
-        key_details {
-
-            #Optional
-            kms_key_id = var.kms_key_id
-        }
-    }
     kms_key_id = var.kms_key_id
 
     options {
