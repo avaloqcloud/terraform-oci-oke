@@ -19,15 +19,16 @@ resource "oci_containerengine_node_pool" "node_pool" {
       subnet_id           = var.worker_subnet_id
       fault_domains       = var.faultdomain
     }
-    size = var.size
+    kms_key_id = var.kms_key_id
+    size       = var.size
 
     node_pool_pod_network_option_details {
       cni_type          = var.cni_type
       max_pods_per_node = var.max_pods_per_node
       pod_subnet_ids    = [var.pod_subnet_id]
-      pod_nsg_ids       = var.pod_nsg_ids  
+      pod_nsg_ids       = var.pod_nsg_ids
     }
-    nsg_ids = var.node_nsg_ids  
+    nsg_ids       = var.node_nsg_ids
     defined_tags  = var.defined_tags
     freeform_tags = var.freeform_tags
   }

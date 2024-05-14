@@ -100,6 +100,12 @@ variable "freeform_tags" {
   default     = {}
 }
 
+variable "kms_key_id" {
+  type = string
+  default = ""
+}
+
+
 ############## NodeGroup Variables ##################
 
 variable "nodepool" {
@@ -118,6 +124,7 @@ variable "nodepool" {
     ssh_public_key = string,
     node_nsg_ids = list(string),
     pod_nsg_ids = list(string)
+    kms_key_id = string
   }))
   default = {
     "nodepool" = {
@@ -135,6 +142,7 @@ variable "nodepool" {
 	    pod_subnet_id = "<Enter-pod-subnet-id-here>"
       node_nsg_ids = [],
       pod_nsg_ids = []
+      kms_key_id = "<Enter-kms-key-id-here>"
     }
   }
 }

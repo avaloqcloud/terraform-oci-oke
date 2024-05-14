@@ -3,6 +3,10 @@ variable "network_security_group_id" {
   type = list(string)
 }
 
+variable "kms_key_id" {
+  type = string
+}
+
 variable "compartment_id" {
   type        = string
 }

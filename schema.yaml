@@ -12,6 +12,7 @@ variableGroups:
       - cluster_kubernetes_version
       - cluster_type
       - addon_name
+      - kms_key_id
       - vcn_id
       - control_plane_subnet_id
       - loadbalancer_subnet_id
