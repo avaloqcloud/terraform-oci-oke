@@ -1,6 +1,6 @@
 variable "network_security_group_id" {
   #type = string
-  type = list(string)
+  type = set(string)
 }
 
 variable "kms_key_id" {
