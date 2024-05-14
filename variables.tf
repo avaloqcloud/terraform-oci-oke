@@ -71,8 +71,9 @@ variable "add_network_security_group" {
 }
 
 variable "network_security_group_id" {
-  type = list(string)
+  type = set(string)
   default = [ ]
+  description = "An additional list of network security groups (NSG) ids for the cluster endpoint."
 }
 
 variable "node_type" {
