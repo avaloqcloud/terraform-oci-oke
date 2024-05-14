@@ -4,7 +4,7 @@ variable "node_pool_name" {
    type        = string
 }
 
-variable "compartment_ocid" {
+variable "compartment_id" {
    type        = string
 }
 
@@ -28,7 +28,7 @@ variable "availabilitydomain" {
    type        = string
 }
 
-variable "worker_subnet_ocid" {
+variable "worker_subnet_id" {
    type        = string
 }
 
@@ -46,7 +46,7 @@ variable "max_pods_per_node" {
    type        = number
 }
 
-variable "pod_subnet_ocid" {
+variable "pod_subnet_id" {
    type        = string
 }
 
@@ -67,12 +67,27 @@ variable "node_type" {
   
 }
 
-variable "pod_configuration_shape" {
-   type = string
-   #default = "Pod.Standard.E3.Flex"
-  
-}
-
 variable "cluster_id" {
    type = string
+}
+
+variable "defined_tags" {
+  type = map(string)
+}
+
+variable "freeform_tags" {
+  type = map(string)
+}
+
+variable "pod_nsg_ids" {
+   type = list(string)
+}
+
+variable "node_nsg_ids" {
+   type = list(string)
+}
+
+variable "kms_key_id" {
+   type = string
+  
 }

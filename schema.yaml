@@ -7,24 +7,29 @@ locale: "en"
 variableGroups:
   - title: "OCI(Oracle Cloud Infrastructure) details"
     variables:
-      - compartment_ocid
+      - compartment_id
       - cluster_name
       - cluster_kubernetes_version
       - cluster_type
       - addon_name
+      - kms_key_id
       - vcn_id
       - control_plane_subnet_id
-      - loadbalancer_subnet_ocid
-      - cni_type
+      - loadbalancer_subnet_id
+      - add_network_security_group
+      - network_security_group_id
       - is_public_ip_enabled
+      - cni_type
       - node_type
       - nodepool
+      - node_nsg_ids
+      - pod_nsg_ids
       - virtual_nodepool
       - pods_cidr
       - services_cidr
 
 variables:
-  compartment_ocid:
+  compartment_id:
     type: oci:identity:compartment:id
     required: true
     description: "Select the OCI compartment within your tenancy for instance creation"
@@ -64,3 +69,9 @@ variables:
       eq:
         - ${node_type}
         - Virtual 
+
+  add_network_security_group:
+   type: boolean
+
+  network_security_group_id:
+    visible: ${add_network_security_group}
