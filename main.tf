@@ -40,7 +40,7 @@ module "nodepool" {
   compartment_id                          = var.compartment_id                     
   cluster_kubernetes_version              = var.cluster_kubernetes_version                            
   cni_type                                = var.cni_type                                
-  image_id                                = each.value.image_id              
+  #image_id                                = each.value.image_id              
   node_shape                              = each.value.node_shape                 
   availabilitydomain                      = each.value.availabilitydomain         
   worker_subnet_id                        = each.value.worker_subnet_id          

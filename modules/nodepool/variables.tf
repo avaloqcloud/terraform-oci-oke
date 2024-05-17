@@ -16,9 +16,9 @@ variable "cni_type" {
    type = string
 }
 
-variable "image_id" {
+/* variable "image_id" {
    type        = string
-}
+} */
 
 variable "node_shape" {
    type        = string

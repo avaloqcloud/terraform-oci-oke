@@ -112,7 +112,7 @@ variable "kms_key_id" {
 variable "nodepool" {
   type = map(object({
     node_pool_name = string,
-    image_id = string,
+    #image_id = string,
     node_shape = string,
     availabilitydomain = string,
     worker_subnet_id = string,
@@ -130,7 +130,7 @@ variable "nodepool" {
   default = {
     "nodepool" = {
       node_pool_name = "managed-nodepool",
-      image_id = "<Enter-image-id-here>",
+      #image_id = "<Enter-image-id-here>",
       node_shape = "VM.Standard.E3.Flex",
       availabilitydomain = "Wfog:EU-ZURICH-1-AD-1",
       faultdomain = [ "FAULT-DOMAIN-1", "FAULT-DOMAIN-2", "FAULT-DOMAIN-3" ],
