@@ -1,9 +1,11 @@
 data "oci_containerengine_cluster_option" "test_cluster_option" {
   cluster_option_id = "all"
+  compartment_id = var.compartment_id
 }
 
 data "oci_containerengine_node_pool_option" "test_node_pool_option" {
   node_pool_option_id = "all"
+  compartment_id = var.compartment_id
 }
 
 data "oci_core_images" "shape_specific_images" {
