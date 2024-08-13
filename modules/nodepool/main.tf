@@ -39,6 +39,15 @@ resource "oci_containerengine_node_pool" "node_pool" {
 
   ssh_public_key = var.ssh_public_key
 
+ 
+  dynamic "node_metadata" {
+    for_each = var.user_data != "" ? [1] : []
+    content {
+     user_data  = base64encode(var.user_data)
+    }
+  }
+
+
   defined_tags  = var.defined_tags
   freeform_tags = var.freeform_tags
 

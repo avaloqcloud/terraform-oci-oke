@@ -91,3 +91,9 @@ variable "kms_key_id" {
    type = string
   
 }
+
+variable "user_data" {
+  type = string
+  description = "User Data for initializing the OKE nodes"
+  default = ""
+}

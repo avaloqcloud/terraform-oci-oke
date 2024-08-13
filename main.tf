@@ -57,6 +57,7 @@ module "nodepool" {
   node_nsg_ids                            = each.value.node_nsg_ids
   pod_nsg_ids                             = each.value.pod_nsg_ids
   kms_key_id                              = each.value.kms_key_id
+  user_data                               = var.user_data
 }
 
 module "virtual_nodepool" {
