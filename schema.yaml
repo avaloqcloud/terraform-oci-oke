@@ -75,3 +75,9 @@ variables:
 
   network_security_group_id:
     visible: ${add_network_security_group}
+  
+  user_data:
+    type: file
+    title: "Startup script for the nodepool instances"
+    description: "Provide a startup script that runs when your nodepool instance boots up for the first time"
+    required: true

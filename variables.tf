@@ -178,6 +178,6 @@ variable "virtual_nodepool" {
 
 variable "user_data" {
   type = string
-  description = "User Data for initializing the OKE nodes"
+  description = "Startup script for the nodepool instances"
   default = ""
 }
